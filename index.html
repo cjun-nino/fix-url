@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p>*使用说明</p>
+		<ul>
+			<li>1. 使用 new 实例化new FixUrl()</li>
+			<li>2. 传入旧的url参数（当前参数）与新的url参数（推荐与旧的参数一致）</li>
+			<li>3. 使用_setNewParams()可实时更新新的url参数</li>
+		</ul>
+		<p>当前旧参数：<span id="url-now"></span></p>
+	</body>
+	<script src="FixUrl-0.02.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var p1 = "?i=&ticket_id1=10002102&mod=play2&mk_uid1=200000";
+		var p2 = "?i=&ticket_id2=10002102&mod=play3&mk_uid2=200000";
+		var p3 = "?i=&ticket_id4=10002102&mod=play4&mk_uid2=200000";
+		var oFixUrl = new FixUrl();
+		var url = oFixUrl._urlParams;
+		url = oFixUrl._setNewParams(p2);
+		url = oFixUrl._setNewParams(p3);
+		url = oFixUrl._setNewParamsObject({
+			"data": 88,
+			"yml": 852
+		})
+		console.log(url);
+		document.getElementById("url-now").innerHTML = window.location.search;
+	</script>
+</html>
